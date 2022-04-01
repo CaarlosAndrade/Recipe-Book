@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
  
+  activeLink = 'recipes'
+
+  onSelectLink(selectLink: string){
+    this.activeLink = selectLink;
+  }
+
 }
