@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Ingredient } from '../shered/ingredients.model';
+import { ShoppingListService } from './shopping-list.service';
 
 @Component({
   selector: 'app-shopping-list',
@@ -8,19 +9,22 @@ import { Ingredient } from '../shered/ingredients.model';
 })
 export class ShoppingListComponent implements OnInit {
 
-  ingredients: Ingredient[] = [
-    new Ingredient('Apples', 5),
-    new Ingredient('Tomatoes', 10),
-    new Ingredient('Cebola', 10)
-  ];
+  ingredients: Ingredient[];
 
-  constructor() { }
+  constructor(private shoppingListService: ShoppingListService) { }
 
-  ngOnInit(): void {
+  /// Boa pratica colocar todas as inicalizações no onInit  
+  ngOnInit(){
+    this.ingredients = this.shoppingListService.getShoppingList();
+
+    // recebendo a atualização da lista de ingredientes atrvés de um evento.
+    this.shoppingListService.ingredienrtsChanged.subscribe(
+      (ingredients: Ingredient[]) => {
+        this.ingredients = ingredients;
+      }
+    )
   }
 
-  addNewIngredient(ingredient: Ingredient){
-    this.ingredients.push(new Ingredient(ingredient.name,ingredient.amount))
-  }
+ 
 
 }
