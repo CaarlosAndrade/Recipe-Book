@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Ingredient } from 'src/app/shered/ingredients.model';
 import { Recipe } from '../recipe.model';
+
 
 @Component({
   selector: 'app-recipe-detail',
@@ -9,13 +11,12 @@ import { Recipe } from '../recipe.model';
 export class RecipeDetailComponent implements OnInit {
 
   @Input() recipeSelect: Recipe; 
-
+  
   constructor() {}
-   
-
-  ngOnInit(): void {
-
-    }
+  
+  ngOnInit(){
+    
+  }
 
 
 
