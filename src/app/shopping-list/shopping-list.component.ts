@@ -12,12 +12,15 @@ export class ShoppingListComponent implements OnInit {
     new Ingredient('Apples', 5),
     new Ingredient('Tomatoes', 10),
     new Ingredient('Cebola', 10)
-
   ];
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addNewIngredient(ingredient: Ingredient){
+    this.ingredients.push(new Ingredient(ingredient.name,ingredient.amount))
   }
 
 }
