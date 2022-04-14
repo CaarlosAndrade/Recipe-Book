@@ -1,6 +1,9 @@
+import { EventEmitter } from "@angular/core";
 import { Recipe } from "./recipe.model";
 
 export class RecipeService {
+
+    recipeSelected = new EventEmitter<Recipe>();
 
     // a lista de receitas foi privada para que não possa ser acessada diretamente;
     private recipes: Recipe[] = [
