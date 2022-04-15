@@ -1,10 +1,14 @@
-import { EventEmitter } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
 import { Ingredient } from "../shered/ingredients.model";
+import { ShoppingListService } from "../shopping-list/shopping-list.service";
 import { Recipe } from "./recipe.model";
 
+@Injectable()
 export class RecipeService {
 
     recipeSelected = new EventEmitter<Recipe>();
+
+    constructor(private shoppingListService: ShoppingListService){}
 
     // a lista de receitas foi privada para que não possa ser acessada diretamente;
     private recipes: Recipe[] = [
@@ -29,5 +33,9 @@ export class RecipeService {
     getRecipes(){ 
         // retorna uma cópia da lista para ser exibida, assim a original não é alterada
         return this.recipes.slice();
+    }
+
+    addIngredientsOnShoppingList( ingredients: Ingredient[]){
+        this.shoppingListService.addNewIngredients(ingredients)
     }
 }

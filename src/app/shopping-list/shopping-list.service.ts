@@ -24,4 +24,10 @@ export class ShoppingListService{
         // quando ele foi adicionado, o evento é emitido passando uma nova cópia da lista de ingredientes atualizada
         this.ingredienrtsChanged.emit(this.ingredients.slice());
       }
+
+      addNewIngredients(ingredients: Ingredient[]){
+        // o metodo push não pode adicionar um array, porem utilziando o operador SPRED (...) é possivel
+        this.ingredients.push(...ingredients)
+        this.ingredienrtsChanged.emit(this.ingredients.slice())
+      }
 }

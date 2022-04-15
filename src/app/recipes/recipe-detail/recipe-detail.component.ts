@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Ingredient } from 'src/app/shered/ingredients.model';
 import { Recipe } from '../recipe.model';
+import { RecipeService } from '../recipes.service';
 
 
 @Component({
@@ -11,11 +12,15 @@ import { Recipe } from '../recipe.model';
 export class RecipeDetailComponent implements OnInit {
 
   @Input() recipeSelect: Recipe; 
-  
-  constructor() {}
+
+  constructor(private recipeService: RecipeService) {}
   
   ngOnInit(){
     
+  }
+
+  onAddIgredientsShoppintList(){
+    this.recipeService.addIngredientsOnShoppingList(this.recipeSelect.ingredients);
   }
 
 
