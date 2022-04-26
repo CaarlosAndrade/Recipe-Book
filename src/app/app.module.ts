@@ -10,6 +10,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 import { DropdownDirective } from './shered/dropdown.directive';
+import { AppRoutingModule } from './app-routing-module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { DropdownDirective } from './shered/dropdown.directive';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule
     
   ],
   providers: [],

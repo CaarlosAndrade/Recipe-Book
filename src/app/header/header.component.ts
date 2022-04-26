@@ -8,10 +8,5 @@ import { Component, EventEmitter, Output } from "@angular/core";
 })
 export class HeaderComponent{
 
-    @Output() selectLink = new EventEmitter<string>();
-
-    onSelect(selectLink: string){
-        this.selectLink.emit(selectLink);
-    }
 
 }
