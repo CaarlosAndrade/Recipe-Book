@@ -1,6 +1,4 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { Recipe } from './recipe.model';
 import { RecipeService } from './recipes.service';
 
 @Component({
@@ -13,23 +11,9 @@ import { RecipeService } from './recipes.service';
 })
 export class RecipesComponent implements OnInit {
 
-  recipeSelect: Recipe;
+  constructor() { }
 
-  constructor(private recipeService: RecipeService) { }
-
-  // Quando o componente inicializar a receita selecionada é atribuida
   ngOnInit(){
     
-    // o subscribe funciona como um ouvinte informando sobre cada mundança
-     this.recipeService.recipeSelected.subscribe(
-       
-       // recebendo os dados da receita que está vindo através do evento, 
-       //e atribuindo ela a variavel do componente
-       (recipe: Recipe) => {
-         this.recipeSelect = recipe;
-       }
-     )
   }
-
-
 }
